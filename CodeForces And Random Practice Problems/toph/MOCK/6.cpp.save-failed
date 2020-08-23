@@ -1,0 +1,48 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+void primenumber(ll n, ll s[]){
+   vector <bool> primenum(n+1, 0);
+   for (ll k=2; k<=n; k+=2)
+      s[k] = 2;
+
+   for (ll i=3; i<=n; i+=2){
+      if (primenum[i] == 0){
+         s[i] = i;
+         for (ll j=i; j*i<=n; j+=2){
+            if (primenum[i*j] == 0){
+               primenum[i*j] = 1;
+               s[i*j] = i;
+            }
+         }
+      }
+   }
+}
+void cpf(ll n) {
+   ll s[n+1];
+   primenumber(n, s);
+   ll res=1;
+   ll pr = s[n];
+   ll pw = 1;
+   while (n > 1){
+      n /= s[n];
+      if (pr == s[n]){
+         pw++;
+         continue;
+      }
+      res *= (pw+pr);
+      pr = s[N];
+      pw = 1;
+   }
+}
+int main()
+{
+    ll t;
+    cin>>t;
+    while(t--)
+    {
+        ll n;
+        cin>>n;
+        long long int c = cpf(n);
+    }
+}
