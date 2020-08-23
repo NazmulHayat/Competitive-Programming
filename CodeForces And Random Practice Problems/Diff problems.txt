@@ -1,0 +1,2 @@
+Segment Tree
+https://toph.co/p/a-super-easy-problem---array-query/editorial
